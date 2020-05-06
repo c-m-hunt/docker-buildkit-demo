@@ -34,7 +34,11 @@ docker build \
   --progress=plain -t test-clone .
 ```
 ### Output
+Instead of building an image, the `--output` argument copies the current image to your local machine.
+
 Use the `scratch` image to build output and then change the `--output` argument to output files from your `docker build` command rather than an image.
+
+This example builds on the previous example of using SSH in Docker build.
 ```
 docker build \
 	--ssh default \
@@ -49,7 +53,7 @@ This example builds on the output example above. It installs AWS CLI and then do
 To run, change the path to your creds file.
 ```
 docker build -f dockerfiles/secret1.Dockerfile \
-  --secret id=creds,src=/Users/chris.hunt/.aws/credentials \
+  --secret id=creds,src=/Users/my-user/.aws/credentials \
   --output test-secret \
   -t test-secret .
 ```
